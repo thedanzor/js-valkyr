@@ -8,6 +8,7 @@ if (wrapper) {
 		// Build a configuration dynamically, for this demo
 		var config = dashboardManager.init(wrapper);
 
+		dashboardManager.toggle();
 		console.log(config);
 	});
 }
