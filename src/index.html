@@ -7,10 +7,54 @@
   <title>Application Demo</title>
   <meta name="description" content="Application demo">
   <meta name="author" content="ScottJones">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+  <style>
+	body, html {
+		padding: 0px;
+		margin: 0px;
+		font-family: 'Roboto', sans-serif;
+	}
+
+	div {
+		box-sizing: border-box;
+	}
+  </style>
+
+  <!-- Application styling -->
+  <style>
+	.application {
+		padding: 0 0 0 300px;
+	}
+	.app_sidebar {
+		width: 300px;
+		float: left;
+		margin-left: -300px;
+
+		background:rgba(0, 0, 0, 0.8);
+		height: 2000px;
+	}
+	.app_wrapper {
+		padding: 20px;
+		float:right;
+		width: 100%;
+	}
+	.app_wrapper .content_wrapper {
+		padding: 20px;
+		width: 30%;
+		float: left;
+		height: 200px;
+		margin: 12px;
+
+		background:rgba(0, 0, 0, 0.1);
+	}
+  </style>
+
 </head>
 
 <body>
 	<div class="application"> </div>
-  <script src="js/scripts.js"></script>
+	<script src="./dist/app.js"></script>
 </body>
 </html>

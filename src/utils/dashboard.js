@@ -3,15 +3,38 @@
  */
 
 /**
- * Check if the DOM element already has the parsed class
+ * Build a configuration file on all the elements we can manage
  *
- * @param {Object} element   - The DOM element to check
- * @param {String} className - The name of the class we want to check for
- *
- * @return {Boolean} - Returns true or false depending if a class exists
+ * We also want to log the current state of these elements
  */
-var check = function () {
+var check = function (wrapper) {
+	var containers = wrapper.querySelectorAll('[dashboard-wrapper]');
 
+	// Build a runtime configuration file
+	var config = {};
+
+	if (containers && containers.length) {
+		for (var i = 0; i < containers.length; i++) {
+			var childElements = containers[i].querySelectorAll('[dashboard-child]');
+			var key = containers[i].getAttribute('dashboard-wrapper');
+
+			config[key] = {};
+
+			if (childElements && childElements.length) {
+				for (var y = 0; y < childElements.length; y++) {
+					var key2 = childElements[y].getAttribute('dashboard-child');
+
+					config[key][key2] = {
+						"state": "enabled",
+						"element": childElements[y]
+					}
+				}
+			}
+		}
+	}
+
+	console.log(config);
+	return config;
 };
 
 // Export our interfaces for this utility
