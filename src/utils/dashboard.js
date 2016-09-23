@@ -8,8 +8,12 @@ var config = {};
  * Build a configuration file on all the elements we can manage
  *
  * We also want to log the current state of these elements
+ * The init function is here if a configuration is not already present
+ * So only use this method if you want to build a configuration
+ *
+ * NOTE: Currently used for demo / trial purposes
  */
-var check = function (wrapper) {
+var init = function (wrapper) {
 	var containers = wrapper.querySelectorAll('[dashboard-wrapper]');
 
 	if (containers && containers.length) {
@@ -44,7 +48,11 @@ var check = function (wrapper) {
 /**
  * When the user has changed the dashboard we want to save the state
  */
-var saveState = function () {
+var saveState = function (appConfig) {
+	if (appConfig) {
+		config = appConfig;
+	}
+
 	// We need the config
 	if (config) {
 
@@ -54,7 +62,11 @@ var saveState = function () {
 /**
  * When the user has finished using the dashboard manager, we should hide the manager
  */
-var removeManager = function () {
+var removeManager = function (appConfig) {
+	if (appConfig) {
+		config = appConfig;
+	}
+
 	// We need the config
 	if (config) {
 
@@ -64,7 +76,11 @@ var removeManager = function () {
 /**
  * When the user requests the manager we want to display management options for each object
  */
-var showManager = function () {
+var showManager = function (appConfig) {
+	if (appConfig) {
+		config = appConfig;
+	}
+
 	// We need the config
 	if (config) {
 
@@ -73,6 +89,6 @@ var showManager = function () {
 
 // Export our interfaces for this utility
 module.exports = {
-	check: check,
-	manager: manager
+	init: init,
+	showManager: showManager
 };

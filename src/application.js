@@ -5,7 +5,9 @@ var wrapper = document.querySelector('.application');
 
 if (wrapper) {
 	application( wrapper, function () {
-		// Run the dashboard manager
-		dashboardManager.check(wrapper);
+		// Build a configuration dynamically, for this demo
+		var config = dashboardManager.init(wrapper);
+
+		console.log(config);
 	});
 }
