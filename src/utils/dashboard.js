@@ -3,6 +3,7 @@
  */
 
 var config = {};
+var dashboardState = 'hidden';
 
 /**
  * Build a configuration file on all the elements we can manage
@@ -87,8 +88,22 @@ var showManager = function (appConfig) {
 	}
 };
 
+/**
+ * Build a simple toggle check to either show or hide the manager
+ */
+var toggle = function () {
+	if (dashboardState === 'hidden') {
+		dashboardState = 'shown';
+		showManager();
+	} else {
+		dashboardState = 'hidden';
+		removeManager();
+	}
+}
+
 // Export our interfaces for this utility
 module.exports = {
 	init: init,
-	showManager: showManager
+	toggle: toggle,
+	save: saveState
 };
