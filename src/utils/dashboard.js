@@ -92,6 +92,14 @@ var showManager = function () {
 		if (containers && containers.length) {
 			for (var i = 0; i < containers.length; i ++) {
 				containers[i].appendChild(buildToggler(containers[i].getAttribute('dashboard-wrapper')));
+
+				var childElements = containers[i].querySelectorAll('[dashboard-child]');
+
+				if (childElements && childElements.length) {
+					for (var y = 0; y < childElements.length; y++) {
+						childElements[y].appendChild(buildToggler(childElements[y].getAttribute('dashboard-child')));
+					}
+				}
 			}
 		}
 	}
