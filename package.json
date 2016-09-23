@@ -1,0 +1,12 @@
+{
+  "author": {
+	"name": "Scott Jones",
+	"email": "sjones243@gmail.com"
+  },
+  "name": "js-valkyr",
+  "version": "1.0.0",
+  "description": "A simple NPM module to allow for custom dashboard interfaces",
+  "private": true,
+  "main": "src/utils/dashboard.js",
+  "dependencies": {}
+}
